@@ -16,7 +16,6 @@ class category extends Controller
     public function index()
     {
         $categories = categoryModel::all();
-        $categories->fresh();
         return view('mescategory', [ 'categories' => $categories ]);
 
     }
@@ -40,10 +39,10 @@ class category extends Controller
     public function store(Request $request)
     {
         if($request->input('titre') == "") {abort(500);}
-        $article = new categoryModel;
-        $article->titre = $request->input('titre');
-        $article->description = $request->input('description');
-        $article->save();
+        $cat = new categoryModel;
+        $cat->titre = $request->input('titre');
+        $cat->description = $request->input('description');
+        $cat->save();
         return redirect()->route('category.index');
 
     }

@@ -19,7 +19,7 @@
                         {!! Form::open(['method' => 'DELETE', 'route' => ['article.destroy', $id]]) !!}
                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
                         {!! Form::close() !!}
-                    </div>{!! link_to_route('article.index', 'catalog', null, ['class' => 'btn btn-success btn-block']) !!}</div>
+                    </div>{!! link_to_route('article.index', 'category', null, ['class' => 'btn btn-success btn-block']) !!}</div>
 
                     <div>
             </div>
