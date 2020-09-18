@@ -6,9 +6,9 @@
         <div class="panel panel-info">
             <div class="panel-heading">Nouvelle categorie</div>
             <div class="panel-body">
-                {!! Form::open(['url' => 'article/'.$id, 'method' => 'put']) !!}
+                {!! Form::open(['url' => 'category/'.$id, 'method' => 'put']) !!}
                     <div class="form-group {!! $errors->has('titre') ? 'has-error' : 'plop' !!}">
-                        {!! Form::text('titre', $titre, ['class' => 'form-control', 'placeholder' => 'Nom de l\'article']) !!}
+                        {!! Form::text('titre', $titre, ['class' => 'form-control', 'placeholder' => 'Nom de la categorie']) !!}
                         {!! $errors->first('titre', '<small class="help-block">:message</small>') !!}
                     </div>
                     <div class="form-group {!! $errors->has('description') ? 'has-error' : '' !!}">

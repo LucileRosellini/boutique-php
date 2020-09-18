@@ -75,7 +75,7 @@ class category extends Controller
     {
         $category =  categoryModel::where('id', $id)->firstOrFail();
         /*findOrFail($id)prend un identifiant et renvoie un seul modèle. Si aucun modèle correspondant n'existe, il renvoie une erreur */
-        return view('articleedit', [
+        return view('categoryedit', [
             'titre' => $category->titre,
             'description' => $category->description,
             'id' => $category->id
