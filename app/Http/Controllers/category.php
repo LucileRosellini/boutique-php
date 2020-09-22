@@ -93,6 +93,7 @@ class category extends Controller
     public function update(Request $request, $id)
     {
         $category = categoryModel::all();
+        /* preferer redirection*/
         $category =  categoryModel::where('id', $id)->firstOrFail();
         $category->titre = $request->input('titre');
         $category->description = $request->input('description');

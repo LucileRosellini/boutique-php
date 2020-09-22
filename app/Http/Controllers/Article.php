@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\ArticleModel;
+use \App\Http\Requests\ContactAddFormulaire;
 
 class Article extends Controller
 {
@@ -17,8 +18,6 @@ class Article extends Controller
     {
         $articles = ArticleModel::all();
         // ::all methode de classe qui retourne l'ensemble (array) des objets appartenant au modele articleModel
-        // $articles->fresh();
-        // Rafraichit les données --> question à poser au formateur / Actualisation
         return view('monCatalog', [ 'catalog' => $articles ]);
         //Retourne la vue 'catalog" avec comme arguments l'ensemble des articles.
     }
@@ -40,10 +39,10 @@ class Article extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactAddFormulaire $request)
     {
-        if($request->input('titre') == "") {abort(500);}
-        if($request->input('prix') < 0) {abort(500);}
+       /*if($request->input('titre') == "") {abort(500);}
+        if($request->input('prix') < 0) {abort(500);} */
         $article = new ArticleModel;
         $article->titre = $request->input('titre');
         $article->prix = $request->input('prix');
@@ -62,7 +61,7 @@ class Article extends Controller
      */
     public function show($id)
     {
-        $toto='coucou';
+
     $article =  ArticleModel::where('id', $id)->firstOrFail();
     /*findOrFail($id)prend un identifiant et renvoie un seul modèle. Si aucun modèle correspondant n'existe, il renvoie une erreur */
 
@@ -71,8 +70,7 @@ class Article extends Controller
             'prix' => $article->prix,
             'description' => $article->description,
             'id' => $article->id
-        ])->with('toto',$toto);
-    }
+        ]);}
 
     /**
      * Show the form for editing the specified resource.
@@ -100,7 +98,7 @@ class Article extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactAddFormulaire $request, $id)
     {
         $articles = ArticleModel::all();
         $article =  ArticleModel::where('id', $id)->firstOrFail();

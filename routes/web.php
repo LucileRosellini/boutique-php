@@ -22,6 +22,8 @@ Route::get('/bar',function(){
 Route::get('/foo',function(){
     return view('foo')->with('toto',"coucou");
 });
+
+
 Route::get('/{any}',function () {
 	return redirect()->route('article.index');
 })->where('any', '.*');
