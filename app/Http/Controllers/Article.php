@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use \App\ArticleModel;
 use \App\Http\Requests\ContactAddFormulaire;
 
